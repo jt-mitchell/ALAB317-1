@@ -14,6 +14,21 @@ class Vehicle {
   }
 }
 
+class NCycle<T> {
+  status = "stopped";
+
+  constructor(
+    public make: T | T[],
+    public model: T | T[],
+    public wheels: number
+  ) {}
+  start() {
+    this.status = "started";
+  }
+  stop() {
+    this.status = "stopped";
+  }
+}
 class Car extends Vehicle {
   constructor(make: string, model: string) {
     super(make, model, 4);
@@ -43,3 +58,5 @@ const myBuick = new Car("Buick", "Regal");
 myBuick.wheels = myBuick.wheels - 1;
 console.log(myBuick.wheels);
 console.log(myBuick.model);
+
+// command to convert to js file: tsc index.ts --target es6
